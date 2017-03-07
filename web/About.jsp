@@ -1,18 +1,10 @@
 <%-- 
-    Document   : Wisata
-    Created on : 06-Mar-2017, 16:55:34
+    Document   : About
+    Created on : 07-Mar-2017, 13:17:27
     Author     : novan
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.Operator"%>
-<%@page import="model.Wisata"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-Operator operator = new Operator();
-ArrayList<Wisata> list = operator.getAllWisata();
-%>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -32,68 +24,63 @@ ArrayList<Wisata> list = operator.getAllWisata();
       <ul class="right hide-on-med-and-down">
         <li><a href="Index.jsp">Home</a></li>
         <li><a href="Wisataa.jsp">Tempat Wisata</a></li>
-        <li><a href="About.jsp">Tentang Kami</a></li>
+        <li><a href="About">Tentang Kami</a></li>
         <li><a href="Login.jsp">Login</a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="Index.jsp">Home</a></li>
-        <li><a href="Wisata.jsp">Tempat Wisata</a></li>
-        <li><a href="#">Tentang Kami</a></li>
-        <li><a href="Login.jsp">Login</a></li>
+        <li><a href="#">Navbar Link</a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
 </div>
 
-<!-- Slider -->
-<div class="slider">
-    <ul class="slides">
-      <li>
-        <img src="gambar/Curug_Sidomba3.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="gambar/Curug_putri4.jpg"> <!-- random image -->
-        <div class="caption left-align">
-          <h3>Left Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="gambar/mountain.jpg"> <!-- random image -->
-        <div class="caption right-align">
-          <h3>Right Aligned Caption</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-      <li>
-        <img src="gambar/telagaremis.jpg"> <!-- random image -->
-        <div class="caption center-align">
-          <h3>This is our big Tagline!</h3>
-          <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-        </div>
-      </li>
-    </ul>
+<!-- Card Photo Anggota -->
+<div class="row container">
+  <div class="col s4">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header center">
+            <br>
+            <img src="materialize/img/rusli.jpg" class="circle" width="150px" height="150px">
+            <h5>Diki Anugrah Triya Novan</h5>
+          </div>
+          <div class="collapsible-body">
+            <p>Sebagai : Back-End Programmer </p>
+          </div>
+        </li>
+      </ul>
   </div>
-<section class="section">
-<% for(Wisata u: list){%>
-<div class="container">
-<div class="row">
-    <div class="col s4">
-        <img src="<%=u.getGambar()%>" style="width:300px;height:200px;margin-top:85px" class="responsive-img"></img>
-    </div>
-        <h4><%=u.getNama()%></h4>
-    <div class="col s8">
-        <p><%= u.getDeskripsi()%></p>
+  <div class="col s4">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header center">
+            <br>
+            <img src="materialize/img/reva.jpg" class="circle" width="150px" height="150px">
+            <h5>Reva Ayu Sentikawati</h5>
+          </div>
+          <div class="collapsible-body">
+            <p>Sebagai : Desain Interface </p>
+          </div>
+        </li>
+      </ul>
+  </div>
+  <div class="col s4">
+    <ul class="collapsible" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header center">
+            <br>
+            <img src="materialize/img/fikri.jpg" class="circle" width="150px"  height="150px">
+            <h5>Fikri Fajar Albana</h5>
+          </div>
+          <div class="collapsible-body">
+            <p>Sebagai : Front-End Programmer</p>
+          </div>
+        </li>
+      </ul>
     </div>
 </div>
-</div>
-       <%}%>
-</section>
+
 <!-- Footer -->
  <footer class="page-footer grey darken-2">
    <div class="container">
@@ -122,8 +109,6 @@ ArrayList<Wisata> list = operator.getAllWisata();
 </body>
 <!-- Script -->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="materialize/js1/materialize.js"></script>
-  <script src="materialize/js1/init.js"></script>
-  <script src="materialize/js1/slider.js"></script>
-  <script src="materialize/js/slider2s.js"></script>
-  </html>
+  <script src="materialize/js/materialize.js"></script>
+    <script src="materialize/js/init.js"></script>
+</html>
