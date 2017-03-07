@@ -6,8 +6,8 @@
         <servlet-class>controller.Login</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Wisata</servlet-name>
-        <servlet-class>controller.Wisata</servlet-class>
+        <servlet-name>WisataCommand</servlet-name>
+        <servlet-class>controller.WisataCommand</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Register</servlet-name>
@@ -25,12 +25,20 @@
         <servlet-name>EditUser</servlet-name>
         <servlet-class>controller.EditUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Wisata</servlet-name>
+        <servlet-class>controller.Wisata</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditWisata</servlet-name>
+        <servlet-class>controller.EditWisata</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Wisata</servlet-name>
+        <servlet-name>WisataCommand</servlet-name>
         <url-pattern>/Wisata</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
@@ -48,6 +56,14 @@
     <servlet-mapping>
         <servlet-name>EditUser</servlet-name>
         <url-pattern>/EditUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Wisata</servlet-name>
+        <url-pattern>/Wisataa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditWisata</servlet-name>
+        <url-pattern>/EditWisata</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

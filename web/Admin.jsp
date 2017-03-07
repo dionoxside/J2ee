@@ -142,7 +142,7 @@
             </span>
           </a>
         <li class="treeview">
-          <a href="#">
+          <a href="ListWisata.jsp">
             <i class="fa fa-edit"></i> <span>Pariwisata</span>
             <span class="pull-right-container">
             </span>

@@ -107,7 +107,7 @@
 
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="materialize/js/materialize.js"></script>
-    <script type="text/javascript" src="materialize/js/io.js"></script>
+    <script type="text/javascript" src="materialize/js1/materialize.js"></script>
+    <script type="text/javascript" src="materialize/js1/io.js"></script>
   </body>
 </html>

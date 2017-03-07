@@ -6,6 +6,8 @@
 package model;
 
 import controller.UserCommand;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.DriverManager;
@@ -23,6 +25,29 @@ import model.User;
  */
 public class Operator {
     private PreparedStatement ps = null;
+    
+    public ArrayList<Wisata>getAllWisata(){
+        ArrayList<Wisata> ListWisata = new ArrayList<Wisata>();
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/login","root","");
+            ps = (PreparedStatement) con.prepareStatement("select *from wisata");
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                Wisata wisata = new Wisata();
+                wisata.setId(rs.getInt("id"));
+                wisata.setNama(rs.getString("nama"));
+                wisata.setDeskripsi(rs.getString("deskripsi"));
+                wisata.setGambar(rs.getString("gambar"));
+                ListWisata.add(wisata);
+            }
+        }catch(Exception e){
+            
+        }
+        
+        return ListWisata;
+        
+    }
     
     public ArrayList<User>getAllUser(){
         ArrayList<User> ListUser = new ArrayList<User>();

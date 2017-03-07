@@ -1,9 +1,10 @@
 <%-- 
-    Document   : ListUser
-    Created on : 25-Feb-2017, 20:09:54
+    Document   : ListWisata
+    Created on : 02-Mar-2017, 17:29:55
     Author     : novan
 --%>
 
+<%@page import="model.Wisata"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="model.Operator"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +14,7 @@
 <%@page import="java.io.*" %>
 <%
 Operator operator = new Operator();
-ArrayList<User> list = operator.getAllUser();
+ArrayList<Wisata> list = operator.getAllWisata();
 %>
 <%
     User user = (User) request.getSession().getAttribute("user");
@@ -137,13 +138,13 @@ ArrayList<User> list = operator.getAllUser();
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="ListUser.jsp">
             <i class="fa fa-dashboard"></i> <span>User</span>
             <span class="pull-right-container">
             </span>
           </a>
-        <li class="treeview">
+        <li class="active treeview">
           <a href="ListWisata.jsp">
             <i class="fa fa-edit"></i> <span>Pariwisata</span>
             <span class="pull-right-container">
@@ -181,29 +182,28 @@ ArrayList<User> list = operator.getAllUser();
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>Role</th>
+                    <th>Photo</th>
+                    <th>Nama</th>
+                    <th>Deskripsi</th>
                     <th>Action</th>
                 </tr>
             </thead>      
        
         <tbody>
-        <% for(User u: list){%>
+        <% for(Wisata u: list){%>
         <tr>
-            <td><a href="User?id=<%= u.getId()%>&action=show"><%= u.getId() %></a></td>
-            <td><a href="User?id=<%= u.getId()%>&action=show"><%= u.getUsername() %></a></td>
-             <td><%= u.getPassword() %></td>
-             <td><%= u.getEmail() %></td>
-             <td><%= u.getRole() %></td>
-             <td><a href="User?id=<%= u.getId()%>&action=delete"> <input class="btn btn-danger" type="button" value="Delete"> </a> <a href="User?id=<%= u.getId()%>&action=edit"> <input class="btn btn-success" type="button" value="Edit"> </a></td>
-        </tr>
+            <td><a href="Wisata?id=<%= u.getId()%>&action=show"><%= u.getId() %></a></td>
+                <td><IMG SRC="<%= u.getGambar()%>"  WIDTH="50" HEIGHT="50" /></td>
+                <td><%= u.getNama()%></td>
+                <td><%= u.getDeskripsi()%></td>
+                
+                <td> <a href="Wisata?id=<%= u.getId()%>&action=delete"> <input class="btn btn-danger" type="button" value="Delete"> </a> <a href="Wisata?id=<%= u.getId()%>&action=edit"> <input class="btn btn-success" type="button" value="Edit"> </a></td>
+                </tr>
              <%}%>
         </tbody>
          </table>
         <br>
-        <a href="AddUser.jsp"> <input class="btn btn-warning" type="button" value="Add"></a>
+        <a href="AddWisata.jsp"> <input class="btn btn-warning" type="button" value="Add"></a>
     </section>
     <!-- /.content -->
   </div>

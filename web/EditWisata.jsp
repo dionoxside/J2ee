@@ -1,19 +1,14 @@
 <%-- 
-    Document   : ListUser
-    Created on : 25-Feb-2017, 20:09:54
+    Document   : EditWisata
+    Created on : 07-Mar-2017, 07:49:12
     Author     : novan
 --%>
 
-<%@page import="java.util.ArrayList"%>
-<%@page import="model.Operator"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Wisata"%>
 <%@page import="model.User"%>
-<%@page import="java.util.Arrays"%>
-<%@page import="java.sql.*"%>
-<%@page import="java.io.*" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-Operator operator = new Operator();
-ArrayList<User> list = operator.getAllUser();
+User u = (User)request.getAttribute("user");
 %>
 <%
     User user = (User) request.getSession().getAttribute("user");
@@ -24,6 +19,9 @@ ArrayList<User> list = operator.getAllUser();
     }else{
         response.sendRedirect("Home.jsp");
     }
+%>
+<%
+Wisata wisata = (Wisata)request.getAttribute("wisata");
 %>
 <!DOCTYPE html>
 <html>
@@ -137,14 +135,14 @@ ArrayList<User> list = operator.getAllUser();
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
         <li class="header">MAIN NAVIGATION</li>
-        <li class="active treeview">
+        <li class="treeview">
           <a href="ListUser.jsp">
             <i class="fa fa-dashboard"></i> <span>User</span>
             <span class="pull-right-container">
             </span>
           </a>
-        <li class="treeview">
-          <a href="ListWisata.jsp">
+        <li class="active treeview">
+          <a href="#">
             <i class="fa fa-edit"></i> <span>Pariwisata</span>
             <span class="pull-right-container">
             </span>
@@ -177,33 +175,37 @@ ArrayList<User> list = operator.getAllUser();
 
     <!-- Main content -->
     <section class="content">
-        <table class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Email</th>
-                    <th>Role</th>
-                    <th>Action</th>
-                </tr>
-            </thead>      
-       
-        <tbody>
-        <% for(User u: list){%>
-        <tr>
-            <td><a href="User?id=<%= u.getId()%>&action=show"><%= u.getId() %></a></td>
-            <td><a href="User?id=<%= u.getId()%>&action=show"><%= u.getUsername() %></a></td>
-             <td><%= u.getPassword() %></td>
-             <td><%= u.getEmail() %></td>
-             <td><%= u.getRole() %></td>
-             <td><a href="User?id=<%= u.getId()%>&action=delete"> <input class="btn btn-danger" type="button" value="Delete"> </a> <a href="User?id=<%= u.getId()%>&action=edit"> <input class="btn btn-success" type="button" value="Edit"> </a></td>
-        </tr>
-             <%}%>
-        </tbody>
-         </table>
-        <br>
-        <a href="AddUser.jsp"> <input class="btn btn-warning" type="button" value="Add"></a>
+          <form action="EditWisata" method="post">
+              <div class="row">
+                  <div class="col-md-10">
+           
+           <tr>
+                <td>ID: </td>
+                <td><input type="text" name="id" value="<%= wisata.getId()%>" class="form-control"/></td>
+           </tr>
+           
+           
+           <tr>
+                <td>Judul Wisata: </td>
+                <td><input type="text" name="nama" value="<%= wisata.getNama()%>" class="form-control"/></td>
+           </tr>          
+           <tr>          
+            <tr>
+                <td>Deskripsi :</td>
+                <td><input type="text" name="deskripsi" value="<%= wisata.getDeskripsi()%>" class="form-control"></td>
+           </tr>
+           
+            <tr>
+                <td>Link Gambar: </td>
+                <td><input type="text" name="gambar" value="<%= wisata.getGambar()%>" class="form-control"></td>
+           </tr>
+           <br>
+           <tr>
+                <td><input class="btn btn-warning" type="submit" value="Edit"> <a href="ListWisata.jsp"> <input class="btn btn-inverse"  type="button" value="Cancel"> </a></td>
+           </tr>
+           </div>
+      </div>
+   </form>
     </section>
     <!-- /.content -->
   </div>
@@ -450,4 +452,3 @@ ArrayList<User> list = operator.getAllUser();
 <!-- AdminLTE for demo purposes -->
 <script src="asset_admin/dist/js/demo.js"></script>
 </body>
-</html>
